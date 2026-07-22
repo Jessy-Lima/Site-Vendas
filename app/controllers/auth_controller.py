@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 
-from app.models.usuarios import Usuario
+from app.models.usuario import Usuario
 from app.auth import hash_senha, verificar_senha, criar_token
 
 # APIRouter  agrupa as rotas dentro desse módulo com o prefixo /auth
