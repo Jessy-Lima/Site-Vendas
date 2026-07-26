@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Ângela Atacadão</title>
+    <title>Cadastrar</title>
+
+    <link rel="stylesheet" href="/static/css/cadastro.css">
 </head>
 <body>
-    <h1>Bem-vindo à Loja Ângela Atacadão</h1>
+
+<div class="container">
+
+    <form class="cadastro-box" action="/usuarios/cadastrar" method="POST">
+
+        <h1>Criar Conta</h1>
+
+        <div class="input-group">
+            <input type="text" name="nome" placeholder="Nome completo" required>
+        </div>
+
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group senha">
+            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+            <button type="button" id="mostrarSenha">👁</button>
+        </div>
+
+        <div class="input-group senha">
+            <input type="password" id="confirmarSenha" placeholder="Confirmar senha" required>
+            <button type="button" id="mostrarConfirmar">👁</button>
+        </div>
+
+        <button class="btn-cadastrar">
+            Criar Conta
+        </button>
+
+        <p>
+            Já possui uma conta?
+            <a href="/auth/login">Entrar</a>
+        </p>
+
+    </form>
+
+</div>
+
+<script src="/static/js/cadastro.js"></script>
+
 </body>
 </html>

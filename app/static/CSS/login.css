@@ -1,0 +1,160 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#0d0d0d;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+
+}
+
+.login-box{
+
+    background:#161616;
+
+    width:380px;
+
+    padding:45px;
+
+    border-radius:18px;
+
+    border:1px solid #ffffff22;
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,.08);
+
+}
+
+.login-box h1{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.input-group{
+
+    margin-bottom:20px;
+
+    position:relative;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:1px solid #444;
+
+    background:#222;
+
+    color:white;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    border-color:white;
+
+    box-shadow:0 0 12px rgba(255,255,255,.25);
+
+}
+
+.senha button{
+
+    position:absolute;
+
+    right:10px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.btn-login{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:black;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.btn-login:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 25px rgba(255,255,255,.45);
+
+}
+
+.btn-login:active{
+
+    transform:scale(.96);
+
+}
+
+a{
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+p{
+
+    color:#bdbdbd;
+
+    text-align:center;
+
+    margin-top:25px;
+
+}

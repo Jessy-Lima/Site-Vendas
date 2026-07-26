@@ -1,0 +1,218 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#0d0d0d;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+
+}
+
+.cadastro-box{
+
+    width:420px;
+
+    background:#171717;
+
+    padding:45px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:0 0 25px rgba(255,255,255,.08);
+
+    animation:aparecer .7s ease;
+
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+h1{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.input-group{
+
+    margin-bottom:18px;
+
+    position:relative;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#242424;
+
+    color:white;
+
+    outline:none;
+
+    border:1px solid transparent;
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    border-color:white;
+
+    box-shadow:0 0 12px rgba(255,255,255,.25);
+
+}
+
+.senha button{
+
+    position:absolute;
+
+    right:12px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.btn-cadastrar{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:black;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+/* efeito de brilho */
+
+.btn-cadastrar::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:80%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    transition:.6s;
+
+}
+
+.btn-cadastrar:hover::before{
+
+    left:130%;
+
+}
+
+.btn-cadastrar:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(255,255,255,.35);
+
+}
+
+.btn-cadastrar:active{
+
+    transform:scale(.96);
+
+}
+
+p{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#bdbdbd;
+
+}
+
+a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+a:hover{
+
+    text-decoration:underline;
+
+}
