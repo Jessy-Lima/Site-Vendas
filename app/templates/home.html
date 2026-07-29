@@ -6,7 +6,11 @@
     <title>Bem-Vindo</title>
 </head>
 <body>
-    <h1>Bem-vindo</h1>
+    
+    <h1>Ola, {{ usuario.nome }}</h1>
+    <p>Perfil: {{ usuario.role }}</p>
+
+    <a href="/auth/logout">Sair</a>
 
 </body>
 </html>
