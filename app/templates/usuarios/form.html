@@ -1,82 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!--
-        editando é None na criação e o objeto Usuario na edição.
-        O template usa isso para adaptar título, action e campos.
-    -->
-    <title>{{ "Editar" if editando else "Novo" }} Usuário — Estoque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ "Editar" if editando else "Novo" }} Usuário</title>
+
+    <link rel="stylesheet" href="/static/css/form_usuario.css">
 </head>
 <body>
-    <h1>{{ "Editar usuário" if editando else "Novo usuário" }}</h1>
 
-    {% if erro %}
-        <p style="color: red;">{{ erro }}</p>
-    {% endif %}
+<div class="container">
 
-    <!--
-        action muda dinamicamente:
-        - criação → POST /usuarios/novo
-        - edição  → POST /usuarios/{id}/editar
-    -->
-    <form action="{{ '/usuarios/' + editando.id|string + '/editar' if editando else '/usuarios/novo' }}"
-          method="post">
+    <div class="card">
 
-        <label>Nome:
-            <!--
-                value recupera do objeto na edição,
-                ou do dicionário "valores" se houve erro na criação
-            -->
-            <input type="text"
-                   name="nome"
-                   value="{{ editando.nome if editando else (valores.nome if valores else '') }}"
-                   required>
-        </label>
-        <br>
-        <br>
-        <label>E-mail:
-            <input type="email"
-                   name="email"
-                   value="{{ editando.email if editando else (valores.email if valores else '') }}"
-                   required>
-        </label>
-        <br>
-        <br>
-        <label>Senha:
-            <!--
-                Na edição o campo é opcional — deixar vazio mantém a senha atual.
-                Na criação é obrigatório.
-            -->
-            <input type="password"
-                   name="senha"
-                   {{ "placeholder='Deixe vazio para não alterar'" if editando else "required minlength='6'" }}>
-        </label>
-        <br>
-        <br>
-        <label>Perfil de acesso:
-            <select name="role">
-                <!--
-                    selected é definido comparando com o valor atual.
-                    Na criação usa "valores.role" se voltou com erro,
-                    senão deixa "operador" como padrão.
-                -->
-                <option value="operador"
-                    {{ 'selected' if (editando and editando.role == 'operador') or (valores and valores.role == 'operador') else '' }}>
-                    Operador
-                </option>
-                <option value="admin"
-                    {{ 'selected' if (editando and editando.role == 'admin') or (valores and valores.role == 'admin') else '' }}>
-                    Administrador
-                </option>
-            </select>
-        </label>
-        <br>
-        <br>
-        <button type="submit">
-            {{ "Salvar alterações" if editando else "Criar usuário" }}
-        </button>
-        <a href="/usuarios">Cancelar</a>
-    </form>
+        <h1>
+            {{ "Editar Usuário" if editando else "Novo Usuário" }}
+        </h1>
+
+        {% if erro %}
+            <div class="erro">
+                {{ erro }}
+            </div>
+        {% endif %}
+
+        <form
+            action="{{ '/usuarios/' + editando.id|string + '/editar' if editando else '/usuarios/novo' }}"
+            method="post">
+
+            <div class="campo">
+
+                <label>Nome</label>
+
+                <input
+                    type="text"
+                    name="nome"
+                    value="{{ editando.nome if editando else (valores.nome if valores else '') }}"
+                    required>
+
+            </div>
+
+            <div class="campo">
+
+                <label>E-mail</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ editando.email if editando else (valores.email if valores else '') }}"
+                    required>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Senha</label>
+
+                <input
+                    type="password"
+                    name="senha"
+                    {% if editando %}
+                        placeholder="Deixe vazio para manter a senha atual"
+                    {% else %}
+                        required minlength="6"
+                    {% endif %}>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Perfil</label>
+
+                <select name="role">
+
+                    <option
+                        value="operador"
+                        {{ 'selected' if (editando and editando.role == 'operador') or (valores and valores.role == 'operador') else '' }}>
+                        Operador
+                    </option>
+
+                    <option
+                        value="admin"
+                        {{ 'selected' if (editando and editando.role == 'admin') or (valores and valores.role == 'admin') else '' }}>
+                        Administrador
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="botoes">
+
+                <button type="submit" class="salvar">
+                    {{ "Salvar Alterações" if editando else "Criar Usuário" }}
+                </button>
+
+                <a href="/usuarios" class="cancelar">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
 </body>
 </html>
